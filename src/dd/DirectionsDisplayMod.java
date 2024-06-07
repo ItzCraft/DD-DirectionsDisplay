@@ -14,7 +14,6 @@ public class DirectionsDisplayMod extends Mod {
         Events.on(ClientLoadEvent.class, e -> {
             Time.runTask(10f, () -> {
                 Core.app.post(() -> {
-                    // Show an info dialog with the localized message
                     Vars.ui.showInfo(Core.bundle.get("mod.startup.message"));
                 });
             });
