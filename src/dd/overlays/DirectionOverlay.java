@@ -8,6 +8,7 @@ import mindustry.graphics.*;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.meta.*;
+import mindustry.Vars;
 
 public class DirectionOverlay {
     public void load() {
