@@ -2,7 +2,7 @@ displayName: "DD: DirectionsDisplay"
 name: "directionsdisplay"
 author: "ItzCraft"
 #the fully qualified main class of the mod 
-main: "example.ExampleJavaMod"
+main: "dd.Test"
 description: "Displays a directions. Useful mod for newbies and scheme makers. "
 version: 0.1
 MinGameVersion: 145
