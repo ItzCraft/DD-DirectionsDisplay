@@ -29,7 +29,7 @@ public class DirectionsDisplayMod extends Mod {
         });
     }
 
-    public load() {
+    public void load() {
         new DirectionOverlay();
     }
 }
