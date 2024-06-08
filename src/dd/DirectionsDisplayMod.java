@@ -19,7 +19,7 @@ public class DirectionsDisplayMod extends Mod {
                 Core.app.post(() -> {
                     // Show an info dialog with the localized message
                     BaseDialog dialog = new BaseDialog("info");
-                    dialog.cont.add(Core.bundle.get("dd.startup.message")).row();
+                    dialog.cont.add(Core.bundle.get("directd.startup.message")).row();
                     dialog.buttons.defaults().size(210f, 64f);
                     dialog.setFillParent(true);
                     dialog.cont.button("OK", dialog::hide);
