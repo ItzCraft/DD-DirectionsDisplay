@@ -8,6 +8,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.blocks.production.*;
+import mindustry.world.blocks.distribution.*;
 
 public class DirectionOverlay {
     public void load() {
@@ -21,7 +22,7 @@ public class DirectionOverlay {
 
                         if (sorter.config() instanceof Item item) {
                             Draw.rect("dd-directionsdisplay-icons-arrow", x, y - 8);
-                            Draw.rect(item.icon(), x, y - 16);
+                            Draw.rect(item.fullIcon(), x, y - 16);
                         }
                         Draw.rect("dd-directionsdisplay-icons-arrow", x - 8, y);
                         Draw.rect("dd-directionsdisplay-icons-arrow", x + 8, y);
@@ -33,6 +34,6 @@ public class DirectionOverlay {
 
     private boolean isConveyorConnected(Sorter sorter, int tileX, int tileY) {
         Building nearby = Vars.world.build(tileX, tileY);
-        return nearby != null && nearby.block() instanceof mindustry.world.blocks.distribution.Conveyor;
+        return nearby != null && nearby.block() instanceof Conveyor;
     }
-                                }
+}
