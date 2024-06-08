@@ -6,6 +6,8 @@ import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
+import static mindustry.Vars.*;
+
 public class DirectionsDisplayMod extends Mod {
     
     public DirectionsDisplayMod() {
