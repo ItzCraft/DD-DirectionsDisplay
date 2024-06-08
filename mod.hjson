@@ -1,5 +1,5 @@
 displayName: "DD: Directions Display"
-name: "dd"
+name: "directd"
 author: "ItzCraft"
 #the fully qualified main class of the mod 
 main: "dd.DisplaysDirectionMod"
