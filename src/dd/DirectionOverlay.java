@@ -9,7 +9,6 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.distribution.*;
-import mindustry.world.blocks.logic.*;
 
 public class DirectionOverlay {
     public void load() {
@@ -22,14 +21,17 @@ public class DirectionOverlay {
                         float x = build.x;
                         float y = build.y;
 
-                        if (sorter.block.configured() && sorter.block instanceof Sorter sorterBlock) {
-                            if (sorterBlock.config() instanceof Item item) {
-                                Draw.rect("dd-directionsdisplay-icons-arrow", x, y - 8);
-                                Draw.rect(item.uiIcon, x, y - 16);
-                            }
-                        }
-                        Draw.rect("dd-directionsdisplay-icons-arrow", x - 8, y);
-                        Draw.rect("dd-directionsdisplay-icons-arrow", x + 8, y);
+                        // Проверяем, подключен ли конвейер к сортировщику
+                        boolean top = isConveyorConnected(sorter, sorter.tileX(), sorter.tileY() + 1);
+                        boolean bottom = isConveyorConnected(sorter, sorter.tileX(), sorter.tileY() - 1);
+                        boolean left = isConveyorConnected(sorter, sorter.tileX() - 1, sorter.tileY());
+                        boolean right = isConveyorConnected(sorter, sorter.tileX() + 1, sorter.tileY());
+
+                        // Отображаем стрелки в зависимости от стороны подключения конвейера
+                        if (top) Draw.rect("dd-directionsdisplay-icons-arrow", x, y + 8);
+                        if (bottom) Draw.rect("dd-directionsdisplay-icons-arrow", x, y - 8);
+                        if (left) Draw.rect("dd-directionsdisplay-icons-arrow", x - 8, y);
+                        if (right) Draw.rect("dd-directionsdisplay-icons-arrow", x + 8, y);
                     }
                 }
             });
@@ -37,7 +39,7 @@ public class DirectionOverlay {
     }
 
     private boolean isConveyorConnected(Sorter sorter, int tileX, int tileY) {
-        Building nearby = Vars.world.build(tileX, tileY);
-        return nearby != null && nearby.block() instanceof Conveyor;
+        Tile tile = Vars.world.tile(tileX, tileY);
+        return tile != null && tile.block() instanceof Conveyor;
     }
 }
