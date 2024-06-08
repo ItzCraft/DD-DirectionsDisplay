@@ -1,4 +1,4 @@
-package dd;
+ package dd;
 
 import arc.*;
 import arc.graphics.g2d.*;
@@ -26,10 +26,10 @@ public class DirectionOverlay {
                         boolean left = isConveyorConnected(build, build.tileX() - 1, build.tileY());
                         boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
 
-                        if (top) Draw.rect("block-1", x, y + 8);
-                        if (bottom) Draw.rect("block-1", x, y - 8);
-                        if (left) Draw.rect("block-1", x - 8, y);
-                        if (right) Draw.rect("block-1", x + 8, y);
+                        if (top) Draw.rect("assets/icons/copper", x, y + 8);
+                        if (bottom) Draw.rect("assets/icons/copper", x, y - 8);
+                        if (left) Draw.rect("assets/icons/copper", x - 8, y);
+                        if (right) Draw.rect("assets/icons/copper", x + 8, y);
                     }
                 }
             });
