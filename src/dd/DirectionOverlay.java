@@ -21,7 +21,7 @@ public class DirectionOverlay {
 
                         if (sorter.config() instanceof Item item) {
                             Draw.rect("dd-directionsdisplay-icons-arrow", x, y - 8);
-                            Draw.rect(item.icon(Cicon.full), x, y - 16);
+                            Draw.rect(item.icon(), x, y - 16);
                         }
                         Draw.rect("dd-directionsdisplay-icons-arrow", x - 8, y);
                         Draw.rect("dd-directionsdisplay-icons-arrow", x + 8, y);
