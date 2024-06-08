@@ -7,6 +7,7 @@ import mindustry.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
+import mindustry.world.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.distribution.*;
 
@@ -41,4 +42,4 @@ public class DirectionOverlay {
         Tile tile = Vars.world.tile(tileX, tileY);
         return tile != null && tile.block() instanceof Conveyor;
     }
-                   }
+}
