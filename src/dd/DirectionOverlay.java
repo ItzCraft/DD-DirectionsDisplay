@@ -20,18 +20,16 @@ public class DirectionOverlay {
                         Draw.z(Layer.overlayUI + 1);
                         float x = build.x;
                         float y = build.y;
-
-                        // Проверяем, подключен ли конвейер к сортировщику
+                        
                         boolean top = isConveyorConnected(build, build.tileX(), build.tileY() + 1);
                         boolean bottom = isConveyorConnected(build, build.tileX(), build.tileY() - 1);
                         boolean left = isConveyorConnected(build, build.tileX() - 1, build.tileY());
                         boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
 
-                        // Отображаем стрелки в зависимости от стороны подключения конвейера
-                        if (top) Draw.rect("dd-directionsdisplay-icons-arrow", x, y + 8);
-                        if (bottom) Draw.rect("dd-directionsdisplay-icons-arrow", x, y - 8);
-                        if (left) Draw.rect("dd-directionsdisplay-icons-arrow", x - 8, y);
-                        if (right) Draw.rect("dd-directionsdisplay-icons-arrow", x + 8, y);
+                        if (top) Draw.rect("block-1", x, y + 8);
+                        if (bottom) Draw.rect("block-1", x, y - 8);
+                        if (left) Draw.rect("block-1", x - 8, y);
+                        if (right) Draw.rect("block-1", x + 8, y);
                     }
                 }
             });
