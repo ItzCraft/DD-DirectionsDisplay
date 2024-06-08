@@ -10,7 +10,7 @@ import mindustry.ui.dialogs.*;
 public class DirectionsDisplayMod extends Mod {
 
     public DirectionsDisplayMod() {
-        Log.info("Loaded DirectionsDisplayMod constructor.");
+        Log.info("Loaded DirectionsDisplayMod loader.");
 
         // Add post-load initialization code here
         Events.on(ClientLoadEvent.class, e -> {
@@ -29,8 +29,7 @@ public class DirectionsDisplayMod extends Mod {
         });
     }
 
-    @Override
-    public void loadContent() {
-        Log.info("Loading some example content.");
+    public load() {
+        new DirectionOverlay();
     }
-            }
+}
