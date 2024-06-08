@@ -15,17 +15,16 @@ public class DirectionOverlay {
         Core.scene.add(new Table() {{
             update(() -> {
                 for (Building build : Groups.build) {
-                    if (build instanceof Sorter) {
-                        Sorter sorter = (Sorter) build;
+                    if (build.block instanceof Sorter) {
                         Draw.z(Layer.overlayUI + 1);
                         float x = build.x;
                         float y = build.y;
 
                         // Проверяем, подключен ли конвейер к сортировщику
-                        boolean top = isConveyorConnected(sorter, sorter.tileX(), sorter.tileY() + 1);
-                        boolean bottom = isConveyorConnected(sorter, sorter.tileX(), sorter.tileY() - 1);
-                        boolean left = isConveyorConnected(sorter, sorter.tileX() - 1, sorter.tileY());
-                        boolean right = isConveyorConnected(sorter, sorter.tileX() + 1, sorter.tileY());
+                        boolean top = isConveyorConnected(build, build.tileX(), build.tileY() + 1);
+                        boolean bottom = isConveyorConnected(build, build.tileX(), build.tileY() - 1);
+                        boolean left = isConveyorConnected(build, build.tileX() - 1, build.tileY());
+                        boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
 
                         // Отображаем стрелки в зависимости от стороны подключения конвейера
                         if (top) Draw.rect("dd-directionsdisplay-icons-arrow", x, y + 8);
@@ -38,8 +37,8 @@ public class DirectionOverlay {
         }});
     }
 
-    private boolean isConveyorConnected(Sorter sorter, int tileX, int tileY) {
+    private boolean isConveyorConnected(Building build, int tileX, int tileY) {
         Tile tile = Vars.world.tile(tileX, tileY);
         return tile != null && tile.block() instanceof Conveyor;
     }
-}
+                   }
