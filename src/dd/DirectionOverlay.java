@@ -24,7 +24,7 @@ public class DirectionOverlay {
                         boolean top = isConveyorConnected(build, build.tileX(), build.tileY() + 1);
                         boolean bottom = isConveyorConnected(build, build.tileX(), build.tileY() - 1);
                         boolean left = isConveyorConnected(build, build.tileX() - 1, build.tileY());
-                        boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY())
+                        boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
                          
                         if (top) {
                             Log.info("Top conveyor connected at (" + build.tileX() + ", " + (build.tileY() + 1) + ")");
