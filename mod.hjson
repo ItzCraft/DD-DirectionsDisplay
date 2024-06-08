@@ -2,7 +2,7 @@ displayName: "DD: DirectionsDisplay"
 name: "dd"
 author: "ItzCraft"
 #the fully qualified main class of the mod 
-main: "dd.DisplayDirectionMod"
+main: "dd.DisplaysDirectionMod"
 description: "Displays a directions. Useful mod for newbies and scheme makers. "
 version: 0.1
 minGameVersion: 145
