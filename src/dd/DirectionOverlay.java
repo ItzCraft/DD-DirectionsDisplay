@@ -8,22 +8,21 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.world.blocks.production.*;
 import mindustry.ctype.*;
-import mindustry.world.blocks.distribution.*;
+import mindustry.world.blocks.distribution.Conveyor;
 
 public class DirectionOverlay {
     public void load() {
         Core.scene.add(new Table() {{
             update(() -> {
-                for (Building build : Vars.world.build) {
-                    if (build instanceof Sorter) {
-                        Sorter sorter = (Sorter) build;
+                for (Building build : Groups.build) {
+                    if (build instanceof Sorter sorter) {
                         Draw.z(Layer.overlayUI + 1);
                         float x = build.x;
                         float y = build.y;
 
-                        if (sorter.getConfig() != null) {
+                        if (sorter.config() != null) {
                             Draw.rect("dd-directionsdisplay-icons-arrow", x, y - 8);
-                            Draw.rect(sorter.getConfig().icon(Cicon.full), x, y - 16);
+                            Draw.rect(((Item)sorter.config()).icon(Cicon.full), x, y - 16);
                         }
                         Draw.rect("dd-directionsdisplay-icons-arrow", x - 8, y);
                         Draw.rect("dd-directionsdisplay-icons-arrow", x + 8, y);
@@ -37,4 +36,4 @@ public class DirectionOverlay {
         Building nearby = Vars.world.build(tileX, tileY);
         return nearby != null && nearby.block() instanceof Conveyor;
     }
-}
+} 
