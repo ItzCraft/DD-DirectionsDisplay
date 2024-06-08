@@ -1,4 +1,4 @@
- package dd;
+package dd;
 
 import arc.*;
 import arc.graphics.g2d.*;
@@ -20,16 +20,28 @@ public class DirectionOverlay {
                         Draw.z(Layer.overlayUI + 1);
                         float x = build.x;
                         float y = build.y;
-                        
+
                         boolean top = isConveyorConnected(build, build.tileX(), build.tileY() + 1);
                         boolean bottom = isConveyorConnected(build, build.tileX(), build.tileY() - 1);
                         boolean left = isConveyorConnected(build, build.tileX() - 1, build.tileY());
-                        boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
-
-                        if (top) Draw.rect("assets/icons/copper", x, y + 8);
-                        if (bottom) Draw.rect("assets/icons/copper", x, y - 8);
-                        if (left) Draw.rect("assets/icons/copper", x - 8, y);
-                        if (right) Draw.rect("assets/icons/copper", x + 8, y);
+                        boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY())
+                         
+                        if (top) {
+                            Log.info("Top conveyor connected at (" + build.tileX() + ", " + (build.tileY() + 1) + ")");
+                            Draw.rect("copper-icon", x, y + 8);
+                        }
+                        if (bottom) {
+                            Log.info("Bottom conveyor connected at (" + build.tileX() + ", " + (build.tileY() - 1) + ")");
+                            Draw.rect("copper-icon", x, y - 8);
+                        }
+                        if (left) {
+                            Log.info("Left conveyor connected at (" + (build.tileX() - 1) + ", " + build.tileY() + ")");
+                            Draw.rect("copper-icon", x - 8, y);
+                        }
+                        if (right) {
+                            Log.info("Right conveyor connected at (" + (build.tileX() + 1) + ", " + build.tileY() + ")");
+                            Draw.rect("copper-icon", x + 8, y);
+                        }
                     }
                 }
             });
