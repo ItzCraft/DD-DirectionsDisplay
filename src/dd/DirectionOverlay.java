@@ -54,7 +54,13 @@ public class DirectionOverlay {
     }
 
     private boolean isConveyorConnected(Building build, int tileX, int tileY) {
+        Call.infoMessage("Checking conveyor connection at (" + tileX + ", " + tileY + ")");
         Tile tile = Vars.world.tile(tileX, tileY);
+        if (tile != null) {
+            Call.infoMessage("Tile found at (" + tileX + ", " + tileY + ") with block: " + tile.block().name);
+        } else {
+            Call.infoMessage("No tile found at (" + tileX + ", " + tileY + ")");
+        }
         return tile != null && tile.block() instanceof Conveyor;
     }
-}
+                    }
