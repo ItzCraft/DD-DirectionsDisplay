@@ -5,6 +5,6 @@ author: "ItzCraft"
 main: "dd.Test"
 description: "Displays a directions. Useful mod for newbies and scheme makers. "
 version: 0.1
-MinGameVersion: 145
+minGameVersion: 145
 subtitle: "Alpha!" 
 java: true
