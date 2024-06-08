@@ -15,7 +15,7 @@ public class DirectionOverlay {
         Core.scene.add(new Table() {{
             update(() -> {
                 for (Building build : Groups.build) {
-                    if (build.block instanceof Sorter) {
+                    if (build instanceof Sorter) {
                         Sorter sorter = (Sorter) build;
                         Draw.z(Layer.overlayUI + 1);
                         float x = build.x;
