@@ -35,25 +35,25 @@ public class DirectionOverlay {
                         if (top) {
                             Call.infoMessage("Drawing text at the top of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Fonts.def.draw("Top", x, y + 8, Align.center, false, textScale);
+                            Fonts.def.draw("Top", x, y + 8, Align.center);
                             Draw.reset();
                         }
                         if (bottom) {
                             Call.infoMessage("Drawing text at the bottom of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Fonts.def.draw("Bottom", x, y - 8, Align.center, false, textScale);
+                            Fonts.def.draw("Bottom", x, y - 8, Align.center);
                             Draw.reset();
                         }
                         if (left) {
                             Call.infoMessage("Drawing text to the left of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Fonts.def.draw("Left", x - 8, y, Align.center, false, textScale);
+                            Fonts.def.draw("Left", x - 8, y, Align.center);
                             Draw.reset();
                         }
                         if (right) {
                             Call.infoMessage("Drawing text to the right of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Fonts.def.draw("Right", x + 8, y, Align.center, false, textScale);
+                            Fonts.def.draw("Right", x + 8, y, Align.center);
                             Draw.reset();
                         }
                     }
@@ -72,4 +72,4 @@ public class DirectionOverlay {
         }
         return tile != null && tile.block() instanceof Conveyor;
     }
-                        }
+}
