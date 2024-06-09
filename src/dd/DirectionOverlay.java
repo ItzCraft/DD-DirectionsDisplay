@@ -19,10 +19,9 @@ public class DirectionOverlay {
             update(() -> {
                 for (Building build : Groups.build) {
                     if (build.block instanceof Sorter) {
-                        Draw.z(Layer.overlayUI + 1);
+                        Draw.z(Layer.effect);
                         float x = build.x;
                         float y = build.y;
-                        float textScale = 1.5f;
 
                         boolean top = isConveyorConnected(build, build.tileX(), build.tileY() + 1);
                         boolean bottom = isConveyorConnected(build, build.tileX(), build.tileY() - 1);
@@ -63,13 +62,14 @@ public class DirectionOverlay {
     }
 
     private boolean isConveyorConnected(Building build, int tileX, int tileY) {
-        Call.infoMessage("Checking conveyor connection at (" + tileX + ", " + tileY + ")");
         Tile tile = Vars.world.tile(tileX, tileY);
         if (tile != null) {
-            Call.infoMessage("Tile found at (" + tileX + ", " + tileY + ") with block: " + tile.block().name);
+            Block block = tile.block();
+            Call.infoMessage("Tile found at (" + tileX + ", " + tileY + ") with block: " + block.name);
+            return block instanceof Conveyor;
         } else {
             Call.infoMessage("No tile found at (" + tileX + ", " + tileY + ")");
+            return false;
         }
-        return tile != null && tile.block() instanceof Conveyor;
     }
 }
