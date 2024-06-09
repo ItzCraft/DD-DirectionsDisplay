@@ -32,20 +32,28 @@ public class DirectionOverlay {
                         Call.infoMessage("Connections - Top: " + top + ", Bottom: " + bottom + ", Left: " + left + ", Right: " + right);
 
                         if (top) {
-                            Call.infoMessage("Drawing arrow at the top of (" + x + ", " + y + ")");
-                            Draw.rect("assets/icons/copper", x, y + 8);
+                            Call.infoMessage("Drawing text at the top of (" + x + ", " + y + ")");
+                            Draw.color(Pal.gray);
+                            Draw.text("Top", x, y + 8);
+                            Draw.reset();
                         }
                         if (bottom) {
-                            Call.infoMessage("Drawing arrow at the bottom of (" + x + ", " + y + ")");
-                            Draw.rect("assets/icons/copper", x, y - 8);
+                            Call.infoMessage("Drawing text at the bottom of (" + x + ", " + y + ")");
+                            Draw.color(Pal.gray);
+                            Draw.text("Bottom", x, y - 8);
+                            Draw.reset();
                         }
                         if (left) {
-                            Call.infoMessage("Drawing arrow to the left of (" + x + ", " + y + ")");
-                            Draw.rect("assets/icons/copper", x - 8, y);
+                            Call.infoMessage("Drawing text to the left of (" + x + ", " + y + ")");
+                            Draw.color(Pal.gray);
+                            Draw.text("Left", x - 8, y);
+                            Draw.reset();
                         }
                         if (right) {
-                            Call.infoMessage("Drawing arrow to the right of (" + x + ", " + y + ")");
-                            Draw.rect("assets/icons/copper", x + 8, y);
+                            Call.infoMessage("Drawing text to the right of (" + x + ", " + y + ")");
+                            Draw.color(Pal.gray);
+                            Draw.text("Right", x + 8, y);
+                            Draw.reset();
                         }
                     }
                 }
@@ -63,4 +71,4 @@ public class DirectionOverlay {
         }
         return tile != null && tile.block() instanceof Conveyor;
     }
-                    }
+                                }
