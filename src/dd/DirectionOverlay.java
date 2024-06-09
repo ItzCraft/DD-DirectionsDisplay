@@ -3,6 +3,7 @@ package dd;
 import arc.*;
 import arc.graphics.g2d.*;
 import arc.scene.ui.layout.*;
+import arc.util.Align;
 import mindustry.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
