@@ -21,38 +21,38 @@ public class DirectionOverlay {
                         Draw.z(Layer.overlayUI + 1);
                         float x = build.x;
                         float y = build.y;
+                        float textScale = 1.5f;
 
                         boolean top = isConveyorConnected(build, build.tileX(), build.tileY() + 1);
                         boolean bottom = isConveyorConnected(build, build.tileX(), build.tileY() - 1);
                         boolean left = isConveyorConnected(build, build.tileX() - 1, build.tileY());
                         boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
 
-                        // Вывод уведомлений для проверки
                         Call.infoMessage("Checking sorter at (" + x + ", " + y + ")");
                         Call.infoMessage("Connections - Top: " + top + ", Bottom: " + bottom + ", Left: " + left + ", Right: " + right);
 
                         if (top) {
                             Call.infoMessage("Drawing text at the top of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Draw.text("Top", x, y + 8);
+                            Fonts.def.draw("Top", x, y + 8, Align.center, false, textScale);
                             Draw.reset();
                         }
                         if (bottom) {
                             Call.infoMessage("Drawing text at the bottom of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Draw.text("Bottom", x, y - 8);
+                            Fonts.def.draw("Bottom", x, y - 8, Align.center, false, textScale);
                             Draw.reset();
                         }
                         if (left) {
                             Call.infoMessage("Drawing text to the left of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Draw.text("Left", x - 8, y);
+                            Fonts.def.draw("Left", x - 8, y, Align.center, false, textScale);
                             Draw.reset();
                         }
                         if (right) {
                             Call.infoMessage("Drawing text to the right of (" + x + ", " + y + ")");
                             Draw.color(Pal.gray);
-                            Draw.text("Right", x + 8, y);
+                            Fonts.def.draw("Right", x + 8, y, Align.center, false, textScale);
                             Draw.reset();
                         }
                     }
@@ -71,4 +71,4 @@ public class DirectionOverlay {
         }
         return tile != null && tile.block() instanceof Conveyor;
     }
-                                }
+                        }
