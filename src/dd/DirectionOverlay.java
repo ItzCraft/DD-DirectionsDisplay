@@ -15,6 +15,9 @@ import mindustry.world.blocks.distribution.*;
 
 public class DirectionOverlay {
     public void load() {
+        
+        Call.infoMessage("DirectionOverlay load method called");
+        
         Core.scene.add(new Table() {{
             update(() -> {
                 for (Building build : Groups.build) {
