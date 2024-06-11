@@ -73,12 +73,13 @@ public class DirectionOverlay {
     }
 
     private boolean isConveyorConnected(Building build, int tileX, int tileY) {
-        Tile tile = Vars.world.tile(tileX, tileY);
-        if (tile != null) {
-            Block block = tile.block();
-            return block instanceof Conveyor;
-        } else {
-            return false;
+    Tile tile = Vars.world.tile(tileX, tileY);
+    if (tile != null) {
+        Block block = tile.block();
+        if (block instanceof Conveyor || block instanceof Junction) {
+            return true;
         }
+    }
+    return false;
     }
 }
