@@ -10,6 +10,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.ui.*;
+import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.distribution.*;
 import static mindustry.game.EventType.*;
