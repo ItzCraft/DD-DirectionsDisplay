@@ -28,39 +28,33 @@ public class DirectionOverlay {
                         boolean left = isConveyorConnected(build, build.tileX() - 1, build.tileY());
                         boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
 
-                        matchConnections(top, bottom, left, right, x, y);
+                        if (top) {
+                            Draw.color(Pal.gray);
+                            Drawf.label("Top", x, y + 8);
+                            Draw.reset();
+                        }
+                        if (bottom) {
+                            Draw.color(Pal.gray);
+                            Drawf.label("Bottom", x, y - 8);
+                            Draw.reset();
+                        }
+                        if (left) {
+                            Draw.color(Pal.gray);
+                            Drawf.label("Left", x - 8, y);
+                            Draw.reset();
+                        }
+                        if (right) {
+                            Draw.color(Pal.gray);
+                            Drawf.label("Right", x + 8, y);
+                            Draw.reset();
+                        }
                     }
                 }
             });
         }});
     }
 
-    private void matchConnections(boolean top, boolean bottom, boolean left, boolean right, float x, float y) {
-        switch (true) {
-            case top -> {
-                Draw.color(Pal.gray);
-                Drawf.label("Top", x, y + 8);
-                Draw.reset();
-            }
-            case bottom -> {
-                Draw.color(Pal.gray);
-                Drawf.label("Bottom", x, y - 8);
-                Draw.reset();
-            }
-            case left -> {
-                Draw.color(Pal.gray);
-                Drawf.label("Left", x - 8, y);
-                Draw.reset();
-            }
-            case right -> {
-                Draw.color(Pal.gray);
-                Drawf.label("Right", x + 8, y);
-                Draw.reset();
-            }
-        }
-    }
-
-    private boolean isConveyorConnected(Building build, int tileX, int tileY) {
+    public boolean isConveyorConnected(Building build, int tileX, int tileY) {
         Tile tile = Vars.world.tile(tileX, tileY);
         if (tile != null) {
             Block block = tile.block();
