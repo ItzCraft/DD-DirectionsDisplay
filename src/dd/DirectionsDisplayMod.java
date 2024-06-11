@@ -11,7 +11,8 @@ public class DirectionsDisplayMod extends Mod {
 
     public DirectionsDisplayMod() {
         Log.info("Loaded DirectionsDisplayMod loader.");
-        new DirectionOverlay();
+        DirectionOverlay overlay = new DirectionOverlay();
+        overlay.load();
         
         Events.on(ClientLoadEvent.class, e -> {
             Time.runTask(10f, () -> {
@@ -26,4 +27,4 @@ public class DirectionsDisplayMod extends Mod {
             });
         });
     }
-        }
+}
