@@ -1,9 +1,11 @@
 package dd;
 
 import arc.*;
+import arc.graphics.Color;
 import arc.graphics.g2d.*;
 import arc.scene.ui.layout.*;
 import arc.util.Align;
+import arc.util.Time;
 import mindustry.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
@@ -14,6 +16,10 @@ import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.distribution.*;
 
 public class DirectionOverlay {
+    private static final float textDuration = 2f; // Время отображения текста в секундах
+    private static final float textScale = 0.5f; // Масштаб текста
+    private static final Color textColor = Pal.accent; // Цвет текста
+
     public void load() {
         Core.scene.add(new Table() {{
             update(() -> {
@@ -29,24 +35,16 @@ public class DirectionOverlay {
                         boolean right = isConveyorConnected(build, build.tileX() + 1, build.tileY());
 
                         if (top) {
-                            Draw.color(Pal.gray);
-                            Fonts.def.draw("Top", x, y + 8, Align.center);
-                            Draw.reset();
+                            showText("Top", x, y + 8, textColor);
                         }
                         if (bottom) {
-                            Draw.color(Pal.gray);
-                            Fonts.def.draw("Bottom", x, y - 8, Align.center);
-                            Draw.reset();
+                            showText("Bottom", x, y - 8, textColor);
                         }
                         if (left) {
-                            Draw.color(Pal.gray);
-                            Fonts.def.draw("Left", x - 8, y, Align.center);
-                            Draw.reset();
+                            showText("Left", x - 8, y, textColor);
                         }
                         if (right) {
-                            Draw.color(Pal.gray);
-                            Fonts.def.draw("Right", x + 8, y, Align.center);
-                            Draw.reset();
+                            showText("Right", x + 8, y, textColor);
                         }
                     }
                 }
@@ -54,7 +52,15 @@ public class DirectionOverlay {
         }});
     }
 
-    public boolean isConveyorConnected(Building build, int tileX, int tileY) {
+    private void showText(String text, float x, float y, Color color) {
+        Time.runTask(textDuration, () -> {
+            Draw.color(color);
+            Fonts.def.draw(text, x, y, Align.center);
+            Draw.reset();
+        });
+    }
+
+    private boolean isConveyorConnected(Building build, int tileX, int tileY) {
         Tile tile = Vars.world.tile(tileX, tileY);
         if (tile != null) {
             Block block = tile.block();
@@ -63,4 +69,4 @@ public class DirectionOverlay {
             return false;
         }
     }
-                                }
+}
