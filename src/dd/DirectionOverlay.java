@@ -2,21 +2,17 @@ package dd;
 
 import arc.Events;
 import arc.graphics.Color;
-import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.Fonts;
+import arc.graphics.g2d.*;
 import arc.scene.ui.layout.Table;
 import arc.util.Align;
 import mindustry.Vars;
-import mindustry.gen.Building;
-import mindustry.gen.Call;
-import mindustry.gen.Groups;
-import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
-import mindustry.type.Block;
-import mindustry.ui.Cicon;
+import mindustry.gen.*;
+import mindustry.graphics.*;
+import mindustry.type.*;
+import mindustry.ui.*;
 import mindustry.world.Tile;
-import mindustry.world.blocks.distribution.Conveyor;
-import mindustry.world.blocks.distribution.Sorter;
+import mindustry.world.blocks.distribution.*;
+import mindustry.world.blocks.distribution.*;
 import mindustry.game.EventType.BlockBuildEndEvent;
 import mindustry.game.EventType.Trigger;
 
