@@ -16,9 +16,9 @@ import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.distribution.*;
 
 public class DirectionOverlay {
-    private static final float textDuration = 2f; // Время отображения текста в секундах
-    private static final float textScale = 0.5f; // Масштаб текста
-    private static final Color textColor = Pal.accent; // Цвет текста
+    private static final float textDuration = 2f;
+    private static final float textScale = 1f;
+    private static final Color textColor = Color.red;
 
     public void load() {
         Core.scene.add(new Table() {{
