@@ -30,22 +30,22 @@ public class DirectionOverlay {
 
                         if (top) {
                             Draw.color(Pal.gray);
-                            Drawf.label("Top", x, y + 8);
+                            Fonts.def.draw("Top", x, y + 8, Align.center);
                             Draw.reset();
                         }
                         if (bottom) {
                             Draw.color(Pal.gray);
-                            Drawf.label("Bottom", x, y - 8);
+                            Fonts.def.draw("Bottom", x, y - 8, Align.center);
                             Draw.reset();
                         }
                         if (left) {
                             Draw.color(Pal.gray);
-                            Drawf.label("Left", x - 8, y);
+                            Fonts.def.draw("Left", x - 8, y, Align.center);
                             Draw.reset();
                         }
                         if (right) {
                             Draw.color(Pal.gray);
-                            Drawf.label("Right", x + 8, y);
+                            Fonts.def.draw("Right", x + 8, y, Align.center);
                             Draw.reset();
                         }
                     }
@@ -63,4 +63,4 @@ public class DirectionOverlay {
             return false;
         }
     }
-}
+                                }
