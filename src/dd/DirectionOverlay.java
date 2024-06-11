@@ -3,8 +3,8 @@ package dd;
 import arc.Events;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
-import arc.scene.ui.layout.Table;
 import arc.util.Align;
+import arc.util.Time;
 import mindustry.Vars;
 import mindustry.gen.*;
 import mindustry.graphics.*;
@@ -12,9 +12,7 @@ import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.world.Tile;
 import mindustry.world.blocks.distribution.*;
-import mindustry.world.blocks.distribution.*;
-import mindustry.game.EventType.BlockBuildEndEvent;
-import mindustry.game.EventType.Trigger;
+import static mindustry.game.EventType.*;
 
 public class DirectionOverlay {
     private static final float textDuration = 2f; // Duration for which the text is displayed (seconds)
@@ -65,9 +63,12 @@ public class DirectionOverlay {
     }
 
     private void showText(String text, float x, float y, Color color) {
-        Draw.color(color);
-        Fonts.def.draw(text, x, y, Align.center);
-        Draw.reset();
+        // Schedule the text to be displayed for a certain duration
+        Time.run(textDuration, () -> {
+            Draw.color(color);
+            Fonts.def.draw(text, x, y, textScale, Align.center, false);
+            Draw.reset();
+        });
     }
 
     private boolean isConveyorConnected(Building build, int tileX, int tileY) {
