@@ -3,8 +3,8 @@ package dd;
 import arc.Events;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
+import arc.math.Mathf;
 import arc.util.Align;
-import arc.util.Time;
 import mindustry.Vars;
 import mindustry.gen.*;
 import mindustry.graphics.*;
@@ -16,7 +16,6 @@ import mindustry.world.blocks.distribution.*;
 import static mindustry.game.EventType.*;
 
 public class DirectionOverlay {
-    private static final float textDuration = 2f; // Duration for which the text is displayed (seconds)
     private static final float textScale = 1f; // Text scale
     private static final Color textColor = Color.red; // Text color
 
@@ -64,22 +63,21 @@ public class DirectionOverlay {
     }
 
     private void showText(String text, float x, float y, Color color) {
-        // Schedule the text to be displayed for a certain duration
-        Time.run(textDuration, () -> {
-            Draw.color(color);
-            Fonts.def.draw(text, x, y, textScale, Align.center, false);
-            Draw.reset();
-        });
+        Draw.color(color);
+        Fonts.def.draw(text, x, y, textScale, Align.center, false);
+        Draw.reset();
     }
 
     private boolean isConveyorConnected(Building build, int tileX, int tileY) {
-    Tile tile = Vars.world.tile(tileX, tileY);
-    if (tile != null) {
-        Block block = tile.block();
-        if (block instanceof Conveyor || block instanceof Junction) {
-            return true;
+        Tile tile = Vars.world.tile(tileX, tileY);
+        if (tile != null) {
+            Block block = tile.block();
+            if (block instanceof Conveyor || block instanceof Junction) {
+                int dx = tileX - build.tileX();
+                int dy = tileY - build.tileY();
+                return (dx == 0 && Math.abs(dy) == 1) || (Math.abs(dx) == 1 && dy == 0);
+            }
         }
-    }
-    return false;
+        return false;
     }
 }
